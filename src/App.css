@@ -1,35 +1,46 @@
-html, body {
+html,
+body {
   height: 100%;
-  margin: 0;     
+  margin: 0;
   padding: 0;
 }
 
 .home-page {
   background-image: url("/src/assets/background1.jpg");
-  background-size: cover;      
-  background-repeat: no-repeat; 
-  background-position: center;  
-  min-height: 100vh;   
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
 }
+
 .login-page {
   background-image: url("/src/assets/background2.jpg");
-  background-size: cover;      
-  background-repeat: no-repeat; 
-  background-position: center;  
-  min-height: 100vh;   
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
 }
 
 .signup-page {
   background-image: url("/src/assets/background3.jpg");
-  background-size: cover;      
-  background-repeat: no-repeat; 
-  background-position: center;  
-  min-height: 100vh;   
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
 }
+
 .play-page {
   background-image: url("/src/assets/background4.jpg");
-  background-size: cover;      
-  background-repeat: no-repeat; 
-  background-position: center;  
-  min-height: 100vh;   
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.logout-page {
+  background-image: url("/src/assets/background5-exit.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
 }

@@ -1,6 +1,10 @@
 
 export default function Logout() {
   return (
-    <div>Logout</div>
+    <>
+    <div className="logout-page">
+    <h1>Good By</h1>
+    </div>
+    </>
   )
 }
