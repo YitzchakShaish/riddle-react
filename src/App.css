@@ -1,3 +1,12 @@
+h1, h2, h3 {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+body, p, span, div {
+  font-family: 'Raleway', sans-serif;
+}
+
+
 html,
 body {
   height: 100%;
@@ -19,7 +28,12 @@ body {
 
 .home-page h1 {
   padding: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 700;
+  font-style: normal;
 }
+
+
 
 .login-page {
   background-image: url("/src/assets/background2.jpg");
@@ -50,9 +64,7 @@ body {
   justify-content: space-between;
   width: 50vw;
 }
-.login-page .login-buttons button{
-  border-radius: 10px;
-}
+
 
 .signup-page {
   background-image: url("/src/assets/background3.jpg");
@@ -86,9 +98,7 @@ body {
   justify-content: space-between;
   width: 50vw;
 }
-.signup-page .signup-buttons button{
-  border-radius: 10px;
-}
+
 
 
 
@@ -125,3 +135,56 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;      
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  background-color: #1abc9c;   
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.button:hover {
+  background-color: #16a085; 
+  transform: scale(1.05);
+}
+
+
+/* .button:active {
+  background-color: #149174;
+  transform: scale(0.95);
+} */
+
+/* .button-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;      
+  height: 60px;
+  padding: 0;
+  border-radius: 50%; 
+  background-color: #1abc9c;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button-home:hover {
+  background-color: #16a085;
+  transform: scale(1.05);
+} */
+
+
+
+
