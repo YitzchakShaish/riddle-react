@@ -11,14 +11,47 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home-page h1 {
+  padding: 2rem;
 }
 
 .login-page {
   background-image: url("/src/assets/background2.jpg");
-  background-size: cover;
+    background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  align-items: center;
+}
+.login-page .fild {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  margin-top: 2em;
+  gap: .5rem;
+}
+.login-page .login-buttons {
+  margin-top: auto;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50vw;
+}
+.login-page .login-buttons button{
+  border-radius: 10px;
 }
 
 .signup-page {
@@ -27,7 +60,37 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  align-items: center;
 }
+
+
+
+.signup-page .fild {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  margin-top: 2em;
+  gap: .5rem;
+}
+.signup-page .signup-buttons {
+  margin-top: auto;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50vw;
+}
+.signup-page .signup-buttons button{
+  border-radius: 10px;
+}
+
+
 
 .play-page {
   background-image: url("/src/assets/background4.jpg");
@@ -35,6 +98,20 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-page .play-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid red;
 }
 
 .logout-page {
@@ -43,4 +120,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
