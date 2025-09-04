@@ -42,6 +42,7 @@ export async function createRiddle(Name: string, TaskDescription: string, correc
 
   const data = await res.json();
   console.log("Saved Riddle:", data);
+  return data;
 }
 
 
@@ -49,7 +50,7 @@ export async function createRiddle(Name: string, TaskDescription: string, correc
 
 // This function updates an existing riddle on the server
 // It takes the riddle ID, new name, task description, and correct answer as parameters
-export async function updateRiddle(id: number, Name: string, TaskDescription: string, correctAnswer: string) {
+export async function updateRiddle(id: string, Name: string, TaskDescription: string, correctAnswer: string) {
   const res = await authFetch(`http://localhost:3000/riddles/${id}`, {
     method: 'PUT',
     headers: { "Content-Type": "application/json" },
@@ -67,13 +68,14 @@ export async function updateRiddle(id: number, Name: string, TaskDescription: st
 
 // This function deletes a riddle by its ID from the server
 // It sends a DELETE request to the server and logs the response
-export async function deleteRiddle(id: number) {
+export async function deleteRiddle(id: string) {
   const res = await authFetch(`http://localhost:3000/riddles/${id}`, {
     method: 'DELETE'
   });
 
   const data = await res.json();
   console.log("Deleted Riddle:", data);
+  return data;
 }
 
 

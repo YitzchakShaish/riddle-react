@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getTop5Players } from "../api/playersApi";
-import NavBar from "../components/NavBar";
-import { getRiddles } from "../api/riddlesApi";
+import { deleteRiddle, getRiddles } from "../api/riddlesApi";
+import NewRiddle from "../components/NewRiddle";
 
 type Player = {
   id: number;
@@ -21,34 +21,59 @@ export default function Admin() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [riddles, setRiddles] = useState<Riddle[]>([]);
 
+  const [showPlayers, setShowPlayers] = useState(false);
+  const [showRiddles, setShowRiddles] = useState(false);
+  const [showNewRiddle, setShowNewRiddle] = useState(false);
+
   async function getTopPlayers() {
-    const res = await getTop5Players();
-    console.log(res)
-    if (res.player && res.player.length > 0) {
-      setPlayers(res.player);
-      setMessage("Top players loaded!");
-    } else {
-      setMessage("No players found.");
+    if (!showPlayers) {
+      const res = await getTop5Players();
+      if (res.player && res.player.length > 0) {
+        setPlayers(res.player);
+        setMessage("Top players loaded!");
+      } else {
+        setMessage("No players found.");
+      }
     }
+    setShowPlayers(!showPlayers); 
   }
 
   async function showAllRiddles() {
-    const response = await getRiddles();
-    setRiddles(response);
+    if (!showRiddles) {
+      const response = await getRiddles();
+      setRiddles(response);
+    }
+    setShowRiddles(!showRiddles); 
+  }
+
+  async function deleteRiddleA(id: string) {
+    const res = await deleteRiddle(id);
+    console.log(res);
+    setRiddles((prev) => prev.filter((r) => r._id !== id));
   }
 
   return (
     <div className="admin-page">
       <div>Admin</div>
-      <button onClick={getTopPlayers}>Get Top Players</button>
-      <button onClick={showAllRiddles}>Show all riddles</button>
+      
+      <button className="button" onClick={getTopPlayers}>
+        {showPlayers ? "Hide Top Players" : "Show Top Players"}
+      </button>
 
+      <button className="button" onClick={showAllRiddles}>
+        {showRiddles ? "Hide all riddles" : "Show all riddles"}
+      </button>
 
-      {players.length > 0 && (
+      <button className="button" onClick={() => setShowNewRiddle(!showNewRiddle)}>
+        {showNewRiddle ? "Hide New Riddle Form" : "Add New Riddle"}
+      </button>
+
+      {showPlayers && players.length > 0 && (
         <ul>
           {players.map((p) => (
             <li key={p.id}>
-              {p.username} — {p.best_avg_time}
+              player: <strong>{p.username}</strong> — best avg time:{" "}
+              <strong>{p.best_avg_time}</strong>
             </li>
           ))}
         </ul>
@@ -56,15 +81,18 @@ export default function Admin() {
 
       {message && <p>{message}</p>}
 
-      {riddles.length > 0 && (
+      {showRiddles && riddles.length > 0 && (
         <ul>
           {riddles.map((r) => (
             <li key={r._id}>
-              {r.name} — {r.taskDescription} - {r.correctAnswer}
+              {r.name} — {r.taskDescription} - {r.correctAnswer}{" "}
+              <button onClick={() => deleteRiddleA(r._id)}>delete</button>
             </li>
           ))}
         </ul>
       )}
+
+      {showNewRiddle && <NewRiddle />}
     </div>
   );
 }

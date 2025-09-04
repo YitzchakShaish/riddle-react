@@ -2,9 +2,16 @@ import { useContext, useRef, useState } from "react";
 import { Link } from "react-router";
 import { loginTS } from "../api/authApi";
 import { UserContext } from "../AppRoutes";
+import { useNavigate } from "react-router";
+
+
+
+
 
 export default function Login() {
     const UserC = useContext(UserContext);
+    const navigate = useNavigate();
+
 
     const userRef = useRef<{
         name: string;
@@ -23,6 +30,10 @@ export default function Login() {
     const [message, setMessage] = useState("");
     let response;
 
+    const goToGame = () => {
+        navigate("/play");
+    };
+
     async function login() {
         response = await loginTS(
             userRef.current.name,
@@ -35,6 +46,7 @@ export default function Login() {
             UserC.id = response.data.playerId;
             UserC.token = response.data.token;
             setMessage("Login successful!");
+            return true;
         } else if (response.status === 401) {
             setMessage("Invalid credentials");
             return null;
@@ -53,7 +65,7 @@ export default function Login() {
                 }}
             >
                 <div className="fild">
-                    <strong>name: </strong>
+                    <strong>user name: </strong>
                     <input
                         type="text"
                         onChange={(e) => (userRef.current.name = e.target.value)}
@@ -79,10 +91,15 @@ export default function Login() {
                         Login
                     </button>
                     <button
-                        type="submit"
+                        type="button"
                         className="button"
-                        onClick={() => {
-                            /* future redirect to game */
+                        onClick={async () => {
+                            const success = await login(); 
+                            console.log(success)
+                            if (success) {
+                                
+                                goToGame();
+                            }
                         }}
                     >
                         Login and Play
