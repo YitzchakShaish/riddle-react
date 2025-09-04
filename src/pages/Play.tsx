@@ -12,13 +12,15 @@ export default function Play() {
   return (
     <>
       <div className="play-page">
-        <h1>Play</h1>
-        <h2>Helo {user.name} </h2>
+        <header>
+          <h1>Play</h1>
+          <h2>Helo {user.name} </h2>
+        </header>
         <Game></Game>
         <div className="play-buttons">
-      
-           <Link to="/admin" className="button">
-           Admin Panel
+
+          <Link to="/admin" className="button">
+            Admin Panel
           </Link>
 
           <Link to="/" className="button-home button">

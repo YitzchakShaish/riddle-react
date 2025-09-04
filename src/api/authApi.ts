@@ -3,7 +3,7 @@ export async function signupTS(username: string, password: string, role?: string
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password, role }),
-    credentials: "include" // שולח cookies אם יש
+    credentials: "include" 
   });
   return res;
 };
@@ -13,7 +13,7 @@ export async function loginTS(username: string, password: string, role?: string)
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password, role }),
-    credentials: "include" // שולח וקולט cookies אוטומטית
+    credentials: "include" 
   });
 
   const data = await res.json();
@@ -40,7 +40,7 @@ export async function logoutTS() {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({}),
-    credentials: "include" // שולח cookies כדי שהשרת ידע מי מתנתק
+    credentials: "include" 
   });
 
   const data = await res.json();
@@ -58,7 +58,7 @@ export async function logoutTS() {
   }
 }
 
-// פונקציה כללית ל־fetch עם cookies
+
 export async function authFetch(url: string, options: RequestInit = {}) {
   return fetch(url, {
     ...options,
@@ -66,6 +66,6 @@ export async function authFetch(url: string, options: RequestInit = {}) {
       ...(options.headers || {}),
       'Content-Type': 'application/json',
     },
-    credentials: "include" // שולח cookies אוטומטית
+    credentials: "include"
   });
 }

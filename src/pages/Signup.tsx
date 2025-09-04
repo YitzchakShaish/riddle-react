@@ -29,38 +29,45 @@ export default function Signup() {
         }
     }
     return (
-        <><div className="signup-page">
-            <div className="fild">
-                <strong>name: </strong>
-                <input type="text"
-                    defaultValue={userRef.current.name}
-                    onChange={(e) => (userRef.current.name = e.target.value)}
-                    placeholder="enter your name: "
-                    required
-                    minLength={4} />
-            </div>
+        <div className="signup-page">
+            <form className="form sginup-form"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    sign();
+                }}
+            >
+                <div className="fild">
+                    <strong>user name: </strong>
+                    <input
+                        type="text"
+                        onChange={(e) => (userRef.current.name = e.target.value)}
+                        placeholder="enter your name: "
+                        required
+                        minLength={4}
+                    />
+                </div>
 
-            <div className="fild">
-                <strong>password: </strong>
-                <input type="password"
-                    defaultValue={userRef.current.password}
-                    onChange={(e) => (userRef.current.password = e.target.value)}
-                    placeholder="enter your password: "
-                    required
-                    minLength={4} />
-            </div>
-            <div className="signup-buttons">
-                <button className="button" onClick={() => { sign() }}>Register</button>
-                <button className="button">Register and Play</button>
-                <Link to="/" className="button button-home">
-                    Back to Home
-                </Link>
-            </div>
-            <div className="signup-respons">
-                {response && <p>{response}</p>}
-            </div>
+                <div className="fild">
+                    <strong>password: </strong>
+                    <input
+                        type="password"
+                        onChange={(e) => (userRef.current.password = e.target.value)}
+                        placeholder="enter your password: "
+                        required
+                        minLength={4}
+                    />
+                </div>
 
+                <div className="signup-buttons">
+                    <button type="submit" className="button">
+                        Signup
+                    </button>
+
+                </div>
+            </form>
+            <Link to="/" className="button-home button">
+                Back to Home
+            </Link>
         </div>
-        </>
-    )
+    );
 }
