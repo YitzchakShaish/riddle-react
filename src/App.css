@@ -2,7 +2,7 @@ h1, h2, h3 {
   font-family: 'Luckiest Guy', cursive;
 }
 
-body, p, span, div {
+body, p, span, div, button {
   font-family: 'Raleway', sans-serif;
 }
 
@@ -14,127 +14,7 @@ body {
   padding: 0;
 }
 
-.home-page {
-  background-image: url("/src/assets/background1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
 
-.home-page h1 {
-  padding: 2rem;
-  font-family: "Luckiest Guy", cursive;
-  font-weight: 700;
-  font-style: normal;
-}
-
-
-
-.login-page {
-  background-image: url("/src/assets/background2.jpg");
-    background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  align-items: center;
-}
-.login-page .fild {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid red;
-  margin-top: 2em;
-  gap: .5rem;
-}
-.login-page .login-buttons {
-  margin-top: auto;
-  padding-bottom: 2em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 50vw;
-}
-
-
-.signup-page {
-  background-image: url("/src/assets/background3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-
-
-.signup-page .fild {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid red;
-  margin-top: 2em;
-  gap: .5rem;
-}
-.signup-page .signup-buttons {
-  margin-top: auto;
-  padding-bottom: 2em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 50vw;
-}
-
-
-
-
-.play-page {
-  background-image: url("/src/assets/background4.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  max-width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.play-page .play-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px;
-  border: 2px solid red;
-}
-
-.logout-page {
-  background-image: url("/src/assets/background5-exit.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
 
 .button {
   display: inline-flex;
@@ -187,4 +67,20 @@ body {
 
 
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: .3rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa4a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
+}

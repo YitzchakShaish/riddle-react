@@ -1,0 +1,81 @@
+.answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    min-width: 200px;
+    padding: 12px 20px;
+    background-color: rgba(46, 204, 113, 0.9);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.wrong-answer {
+    background-color: rgba(216, 24, 24, 0.9);
+
+}
+
+.riddle-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    min-height: 400px;
+    width: fit-content;
+    min-width: 500px;
+    padding: 20px;
+    background-color: rgba(67, 200, 147, 0.774);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.riddle-card form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+}
+
+
+.riddle-card form input {
+    border-radius: 6px;
+}
+
+
+.riddle-card form button {
+    background-color: lightgreen;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.riddle-card form button:hover {
+    background-color: rgb(29, 177, 29);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: none;
+}
