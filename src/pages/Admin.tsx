@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { getTop5Players } from "../api/playersApi";
+import NavBar from "../components/NavBar";
+import { getRiddles } from "../api/riddlesApi";
 
 type Player = {
   id: number;
@@ -7,9 +9,17 @@ type Player = {
   best_avg_time: number;
 };
 
+type Riddle = {
+  correctAnswer: string
+  name: string
+  taskDescription: string
+  _id: string
+}
+
 export default function Admin() {
   const [message, setMessage] = useState("");
   const [players, setPlayers] = useState<Player[]>([]);
+  const [riddles, setRiddles] = useState<Riddle[]>([]);
 
   async function getTopPlayers() {
     const res = await getTop5Players();
@@ -22,10 +32,17 @@ export default function Admin() {
     }
   }
 
+  async function showAllRiddles() {
+    const response = await getRiddles();
+    setRiddles(response);
+  }
+
   return (
-    <>
+    <div className="admin-page">
       <div>Admin</div>
       <button onClick={getTopPlayers}>Get Top Players</button>
+      <button onClick={showAllRiddles}>Show all riddles</button>
+
 
       {players.length > 0 && (
         <ul>
@@ -38,6 +55,16 @@ export default function Admin() {
       )}
 
       {message && <p>{message}</p>}
-    </>
+
+      {riddles.length > 0 && (
+        <ul>
+          {riddles.map((r) => (
+            <li key={r._id}>
+              {r.name} — {r.taskDescription} - {r.correctAnswer}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
